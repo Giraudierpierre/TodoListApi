@@ -1,0 +1,11 @@
+AppBundle\Entity\Tag:
+    attributes:
+        priority:
+            groups: ['tag', 'task']
+
+AppBundle\Entity\Task:
+    attributes:
+        content:
+            groups: ['tag', 'task']
+        completed:
+              groups: ['tag', 'task']
