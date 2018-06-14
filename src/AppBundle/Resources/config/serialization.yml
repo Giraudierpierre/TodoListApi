@@ -1,0 +1,11 @@
+LittleTalkBundle\Entity\Tag:
+    attributes:
+        priority:
+            groups: ['tag', 'task']
+
+LittleTalkBundle\Entity\Task:
+    attributes:
+        content:
+            groups: ['tag', 'task']
+        completed:
+              groups: ['tag', 'task']
