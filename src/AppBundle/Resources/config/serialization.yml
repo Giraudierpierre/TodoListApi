@@ -1,9 +1,9 @@
-LittleTalkBundle\Entity\Tag:
+AppBundle\Entity\Tag:
     attributes:
         priority:
             groups: ['tag', 'task']
 
-LittleTalkBundle\Entity\Task:
+AppBundle\Entity\Task:
     attributes:
         content:
             groups: ['tag', 'task']
