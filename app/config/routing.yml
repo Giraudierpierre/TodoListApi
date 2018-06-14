@@ -9,4 +9,4 @@ tasks:
 api:
     resource: '.'
     type: 'api_platform'
-    prefix: '/api'
+    prefix: '/'
