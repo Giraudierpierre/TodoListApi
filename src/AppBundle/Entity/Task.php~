@@ -98,28 +98,5 @@ class Task
     {
         return $this->completed;
     }
-
-    /**
-     * Set tag
-     *
-     * @param \AppBundle\Entity\Tag $tag
-     *
-     * @return Task
-     */
-    public function setTag(\AppBundle\Entity\Tag $tag = null)
-    {
-        $this->tag = $tag;
-
-        return $this;
-    }
-
-    /**
-     * Get tag
-     *
-     * @return \AppBundle\Entity\Tag
-     */
-    public function getTag()
-    {
-        return $this->tag;
-    }
 }
+
