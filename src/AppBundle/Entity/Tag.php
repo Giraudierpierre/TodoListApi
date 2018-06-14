@@ -30,7 +30,7 @@ class Tag
     private $priority;
 
     /**
-     * One Product has Many Features.
+     *
      * @ORM\OneToMany(targetEntity="Task", mappedBy="tag")
      */
     private $tasks;

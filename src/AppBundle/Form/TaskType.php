@@ -2,7 +2,6 @@
 
 namespace AppBundle\Form;
 
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -15,12 +14,6 @@ class TaskType extends AbstractType
         $builder
             ->add('content', TextType::class)
             ->add('completed');
-//            ->add('tag', EntityType::class, [
-//                'class'        => 'AppBundle\Entity\Tag',
-//                'choice_label' => 'priority',
-//                'multiple'     => false,
-//                'required'     => true,
-//            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

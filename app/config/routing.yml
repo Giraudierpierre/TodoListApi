@@ -2,6 +2,11 @@ app:
     resource: '@AppBundle/Controller/'
     type:     annotation
 
-taskscons:
+tasks:
     type:     rest
     resource: AppBundle\Controller\TaskController
+
+api:
+    resource: '.'
+    type: 'api_platform'
+    prefix: '/api'

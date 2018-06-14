@@ -3,10 +3,11 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * Task
- *
+ * @ApiResource
  * @ORM\Table(name="task")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TaskRepository")
  */
@@ -36,7 +37,7 @@ class Task
     private $completed;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Tag", inversedBy="task")
+     * @ORM\ManyToOne(targetEntity="Tag", inversedBy="tasks")
      * @ORM\JoinColumn(name="tag_id", referencedColumnName="id")
      */
     private $tag;
