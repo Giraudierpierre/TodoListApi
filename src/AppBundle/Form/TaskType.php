@@ -14,13 +14,13 @@ class TaskType extends AbstractType
     {
         $builder
             ->add('content', TextType::class)
-            ->add('completed')
-            ->add('tag', EntityType::class, [
-                'class'        => 'AppBundle\Entity\Tag',
-                'choice_label' => 'priority',
-                'multiple'     => false,
-                'required'     => true,
-            ]);
+            ->add('completed');
+//            ->add('tag', EntityType::class, [
+//                'class'        => 'AppBundle\Entity\Tag',
+//                'choice_label' => 'priority',
+//                'multiple'     => false,
+//                'required'     => true,
+//            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
