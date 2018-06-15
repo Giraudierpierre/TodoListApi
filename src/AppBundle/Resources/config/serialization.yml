@@ -8,4 +8,6 @@ AppBundle\Entity\Task:
         content:
             groups: ['tag', 'task']
         completed:
-              groups: ['tag', 'task']
+            groups: ['tag', 'task']
+        tag:
+            groups: ['task']
