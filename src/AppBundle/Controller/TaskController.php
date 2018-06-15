@@ -22,7 +22,7 @@ class TaskController extends Controller
         /** @var EntityManager $em */
         $em = $this->getDoctrine()->getManager();
 
-        $task = $em->getRepository('AppBundle:Task')->findAll();
+        $task = $em->getRepository('AppBundle:Task')->getTasks();
 
         // If task not found
         if (!$task) {
@@ -44,6 +44,24 @@ class TaskController extends Controller
         }
 
         return $task;
+    }
+
+    /**
+     * @Rest\View(serializerGroups={"task"})
+     * @Rest\Get("tasks/completed")
+     */
+    public function getCompletedTaskAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $tasks = $em->getRepository('AppBundle:Task')->getCompletedTasks();
+
+        // If task not found
+        if (!$tasks) {
+            return new JsonResponse(['message' => 'Tasks not found'], Response::HTTP_NOT_FOUND);
+        }
+
+        return $tasks;
     }
 
     /**

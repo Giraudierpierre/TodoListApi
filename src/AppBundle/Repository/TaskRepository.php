@@ -10,4 +10,27 @@ namespace AppBundle\Repository;
  */
 class TaskRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getTasks(){
+
+        $query = $this->createQueryBuilder('t')
+            ->where('t.completed = :completed')
+            ->setParameter('completed', 0)
+            ->getQuery();
+
+        $tasks = $query->getResult();
+
+        return $tasks;
+    }
+
+    public function getCompletedTasks(){
+
+        $query = $this->createQueryBuilder('t')
+            ->where('t.completed = :completed')
+            ->setParameter('completed', 1)
+            ->getQuery();
+
+        $tasks = $query->getResult();
+
+        return $tasks;
+    }
 }
