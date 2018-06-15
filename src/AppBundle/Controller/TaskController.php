@@ -68,28 +68,21 @@ class TaskController extends Controller
      * @Rest\View(statusCode=Response::HTTP_CREATED)
      * @Rest\Post("/task")
      */
-    public function postTaskAction(Request $request)
+    public function postTaskAction()
     {
         /** @var EntityManager $em */
         $em = $this->getDoctrine()->getManager();
 
         // Create new task
         $task = new Task();
+        $task->setCompleted(0);
 
-        // Create task form
-        $form = $this->createForm(TaskType::class, $task);
-        // Fill form with request data
-        $form->submit($request->request->all());
+        // Persist profile
+        $em->persist($task);
+        // Update database
+        $em->flush();
 
-        // If form is task
-        if ($form->isValid()) {
-            // Persist profile
-            $em->persist($task);
-            // Update database
-            $em->flush();
-
-            return $task;
-        }
+        return $task;
     }
 
     /**
