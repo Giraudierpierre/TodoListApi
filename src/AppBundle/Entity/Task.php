@@ -25,14 +25,14 @@ class Task
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="string", length=255)
+     * @ORM\Column(name="content", type="string", length=255, nullable=true)
      */
     private $content;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="completed", type="boolean")
+     * @ORM\Column(name="completed", type="boolean", nullable=true)
      */
     private $completed;
 
