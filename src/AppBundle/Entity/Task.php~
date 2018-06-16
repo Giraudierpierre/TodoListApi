@@ -3,10 +3,11 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * Task
- *
+ * @ApiResource
  * @ORM\Table(name="task")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TaskRepository")
  */
@@ -24,20 +25,21 @@ class Task
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="string", length=255)
+     * @ORM\Column(name="content", type="string", length=255, nullable=true)
      */
     private $content;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="completed", type="boolean")
+     * @ORM\Column(name="completed", type="boolean", nullable=true)
      */
     private $completed;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Tag", inversedBy="task")
-     * @ORM\JoinColumn(name="tag_id", referencedColumnName="id")
+     * @var string
+     *
+     * @ORM\Column(name="tag", type="string", length=255, nullable=true)
      */
     private $tag;
 
@@ -99,4 +101,3 @@ class Task
         return $this->completed;
     }
 }
-

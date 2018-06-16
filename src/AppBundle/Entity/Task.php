@@ -37,8 +37,9 @@ class Task
     private $completed;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Tag", inversedBy="tasks")
-     * @ORM\JoinColumn(name="tag_id", referencedColumnName="id")
+     * @var string
+     *
+     * @ORM\Column(name="tag", type="string", length=255, nullable=true)
      */
     private $tag;
 
@@ -101,13 +102,13 @@ class Task
     }
 
     /**
-     * Set tag
+     * Set tag.
      *
-     * @param \AppBundle\Entity\Tag $tag
+     * @param string|null $tag
      *
      * @return Task
      */
-    public function setTag(\AppBundle\Entity\Tag $tag = null)
+    public function setTag($tag = null)
     {
         $this->tag = $tag;
 
@@ -115,9 +116,9 @@ class Task
     }
 
     /**
-     * Get tag
+     * Get tag.
      *
-     * @return \AppBundle\Entity\Tag
+     * @return string|null
      */
     public function getTag()
     {

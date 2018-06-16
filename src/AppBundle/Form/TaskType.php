@@ -17,6 +17,9 @@ class TaskType extends AbstractType
             ])
             ->add('completed', [
                 'required' => false,
+            ])
+            ->add('tag', [
+                'required' => false,
             ]);
     }
 

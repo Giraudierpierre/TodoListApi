@@ -6,10 +6,6 @@ tasks:
     type:     rest
     resource: AppBundle\Controller\TaskController
 
-tags:
-    type:     rest
-    resource: AppBundle\Controller\TagController
-
 api:
     resource: '.'
     type: 'api_platform'
