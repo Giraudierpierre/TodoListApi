@@ -132,4 +132,18 @@ class TaskController extends Controller
         $em->remove($task);
         $em->flush();
     }
+
+    /**
+     * @Rest\View(serializerGroups={"task"})
+     * @Rest\Get("/tasks/lastRecord")
+     */
+    public function getLastRecordedTaskAction()
+    {
+        /** @var EntityManager $em */
+        $em = $this->getDoctrine()->getManager();
+
+        $lastRecordedTask = $em->getRepository('AppBundle:Task')->getLastRecordedTask();
+
+        return $lastRecordedTask;
+    }
 }

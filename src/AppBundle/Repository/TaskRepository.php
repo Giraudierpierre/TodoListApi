@@ -10,7 +10,8 @@ namespace AppBundle\Repository;
  */
 class TaskRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getTasks(){
+    public function getTasks()
+    {
 
         $query = $this->createQueryBuilder('t')
             ->where('t.completed = :completed')
@@ -22,7 +23,8 @@ class TaskRepository extends \Doctrine\ORM\EntityRepository
         return $tasks;
     }
 
-    public function getCompletedTasks(){
+    public function getCompletedTasks()
+    {
 
         $query = $this->createQueryBuilder('t')
             ->where('t.completed = :completed')
@@ -32,5 +34,17 @@ class TaskRepository extends \Doctrine\ORM\EntityRepository
         $tasks = $query->getResult();
 
         return $tasks;
+    }
+
+    public function getLastRecordedTask()
+    {
+        $query = $this->createQueryBuilder('t')
+            ->setMaxResults(1)
+            ->orderBy('t.id', 'DESC')
+            ->getQuery();
+
+        $task = $query->getResult();
+
+        return $task;
     }
 }
