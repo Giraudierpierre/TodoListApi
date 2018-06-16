@@ -22,14 +22,9 @@ class TaskController extends Controller
         /** @var EntityManager $em */
         $em = $this->getDoctrine()->getManager();
 
-        $task = $em->getRepository('AppBundle:Task')->getTasks();
+        $tasks = $em->getRepository('AppBundle:Task')->getTasks();
 
-        // If task not found
-        if (!$task) {
-            return new JsonResponse(['message' => 'Tasks not found'], Response::HTTP_NOT_FOUND);
-        }
-
-        return $task;
+        return $tasks;
     }
 
     /**
@@ -55,11 +50,6 @@ class TaskController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $tasks = $em->getRepository('AppBundle:Task')->getCompletedTasks();
-
-        // If task not found
-        if (!$tasks) {
-            return new JsonResponse(['message' => 'Tasks not found'], Response::HTTP_NOT_FOUND);
-        }
 
         return $tasks;
     }
@@ -96,7 +86,7 @@ class TaskController extends Controller
 
         $tag = $request->get('tag');
 
-        if($tag) {
+        if ($tag) {
             $task->setTag($tag);
         }
 
@@ -104,6 +94,12 @@ class TaskController extends Controller
 
         if ($taskContent) {
             $task->setContent($taskContent);
+        }
+
+        $completed = $request->get('completed');
+
+        if ($completed === 0 || $completed != null) {
+            $task->setCompleted($completed);
         }
 
         $em->flush();

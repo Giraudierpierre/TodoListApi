@@ -30,9 +30,9 @@ class Task
     private $content;
 
     /**
-     * @var bool
+     * @var int
      *
-     * @ORM\Column(name="completed", type="boolean", nullable=true)
+     * @ORM\Column(name="completed", type="integer", length=1)
      */
     private $completed;
 
@@ -78,30 +78,6 @@ class Task
     }
 
     /**
-     * Set completed
-     *
-     * @param boolean $completed
-     *
-     * @return Task
-     */
-    public function setCompleted($completed)
-    {
-        $this->completed = $completed;
-
-        return $this;
-    }
-
-    /**
-     * Get completed
-     *
-     * @return bool
-     */
-    public function getCompleted()
-    {
-        return $this->completed;
-    }
-
-    /**
      * Set tag.
      *
      * @param string|null $tag
@@ -123,5 +99,29 @@ class Task
     public function getTag()
     {
         return $this->tag;
+    }
+
+    /**
+     * Set completed.
+     *
+     * @param int|null $completed
+     *
+     * @return Task
+     */
+    public function setCompleted($completed = null)
+    {
+        $this->completed = $completed;
+
+        return $this;
+    }
+
+    /**
+     * Get completed.
+     *
+     * @return int|null
+     */
+    public function getCompleted()
+    {
+        return $this->completed;
     }
 }
