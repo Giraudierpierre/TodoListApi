@@ -1,10 +1,14 @@
 AppBundle\Entity\Tag:
     attributes:
+        id :
+            groups: ['tag']
         priority:
             groups: ['tag', 'task']
 
 AppBundle\Entity\Task:
     attributes:
+        id :
+            groups: ['task']
         content:
             groups: ['tag', 'task']
         completed:
