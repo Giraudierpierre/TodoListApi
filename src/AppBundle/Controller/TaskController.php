@@ -118,5 +118,7 @@ class TaskController extends Controller
 
         $em->remove($task);
         $em->flush();
+
+        return true;
     }
 }
