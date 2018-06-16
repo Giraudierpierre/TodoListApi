@@ -101,23 +101,16 @@ class TaskController extends Controller
 
             if ($tag) {
                 $task->setTag($tag);
-                $em->flush();
             }
         }
 
-        // Edit task
-        $form = $this->createForm(TaskType::class, $task);
+        $taskContent = $request->get('content');
 
-        // Fill form
-        $form->submit($request->request->all(), false);
-
-        // If form is valid
-        if ($form->isValid()) {
-            // Update database
-            $em->flush();
-
-            return $task;
+        if ($taskContent) {
+            $task->setContent($taskContent);
         }
+
+        $em->flush();
     }
 
     /**
@@ -131,19 +124,5 @@ class TaskController extends Controller
 
         $em->remove($task);
         $em->flush();
-    }
-
-    /**
-     * @Rest\View(serializerGroups={"task"})
-     * @Rest\Get("/tasks/lastRecord")
-     */
-    public function getLastRecordedTaskAction()
-    {
-        /** @var EntityManager $em */
-        $em = $this->getDoctrine()->getManager();
-
-        $lastRecordedTask = $em->getRepository('AppBundle:Task')->getLastRecordedTask();
-
-        return $lastRecordedTask;
     }
 }
