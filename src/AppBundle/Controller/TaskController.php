@@ -94,14 +94,10 @@ class TaskController extends Controller
         /** @var EntityManager $em */
         $em = $this->getDoctrine()->getManager();
 
-        $tagId = $request->get('tag');
+        $tag = $request->get('tag');
 
-        if ($tagId) {
-            $tag = $em->getRepository('AppBundle:Tag')->findOneBy(['id' => $tagId]);
-
-            if ($tag) {
-                $task->setTag($tag);
-            }
+        if($tag) {
+            $task->setTag($tag);
         }
 
         $taskContent = $request->get('content');
@@ -111,6 +107,8 @@ class TaskController extends Controller
         }
 
         $em->flush();
+
+        return $task;
     }
 
     /**
