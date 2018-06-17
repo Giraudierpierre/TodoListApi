@@ -10,6 +10,11 @@ namespace AppBundle\Repository;
  */
 class TaskRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * Get all not completed tasks
+     *
+     * @return mixed
+     */
     public function getTasks()
     {
 
@@ -23,6 +28,11 @@ class TaskRepository extends \Doctrine\ORM\EntityRepository
         return $tasks;
     }
 
+    /**
+     * Get all completed tasks
+     *
+     * @return mixed
+     */
     public function getCompletedTasks()
     {
 

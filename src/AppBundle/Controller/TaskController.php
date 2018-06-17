@@ -3,7 +3,6 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Task;
-use AppBundle\Form\TaskType;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -14,6 +13,8 @@ use Symfony\Component\HttpFoundation\Response;
 class TaskController extends Controller
 {
     /**
+     * Get all tasks
+     *
      * @Rest\View(serializerGroups={"task"})
      * @Rest\Get("tasks")
      */
@@ -28,6 +29,8 @@ class TaskController extends Controller
     }
 
     /**
+     * Get a task by id
+     *
      * @Rest\View(serializerGroups={"task"})
      * @Rest\Get("task/{id}")
      */
@@ -42,6 +45,8 @@ class TaskController extends Controller
     }
 
     /**
+     * Get all completed tasks
+     *
      * @Rest\View(serializerGroups={"task"})
      * @Rest\Get("tasks/completed")
      */
@@ -55,6 +60,8 @@ class TaskController extends Controller
     }
 
     /**
+     * Create new task
+     *
      * @Rest\View(statusCode=Response::HTTP_CREATED)
      * @Rest\Post("/task")
      */
@@ -76,6 +83,8 @@ class TaskController extends Controller
     }
 
     /**
+     * Edit task
+     *
      * @Rest\View(serializerGroups={"task"})
      * @Rest\Put("/task/{id}")
      */
@@ -108,6 +117,8 @@ class TaskController extends Controller
     }
 
     /**
+     * Delete task
+     *
      * @Rest\View(serializerGroups={"task"})
      * @Rest\Delete("/task/{id}")
      */
